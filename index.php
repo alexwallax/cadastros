@@ -18,7 +18,7 @@
 
 <div class="container">
 	
-	<h2 class="text-center"> List of Clients <i class="fa fa-users"></i></h2>
+	<h2 class="text-center"> Lista de Clientes <i class="fa fa-users"></i></h2>
 
 	<h5 class="text-right">
 		<a href="view/page_register.php" class="btn btn-primary btn-xs">
@@ -54,14 +54,20 @@
 					<td><?php echo $client['address']; ?></td>
 					<td><?php echo $client['phone']; ?></td>
 					<td>
-						<form method="POST">
+						<form method="POST" action="view/page_update.php">
+
+							<input type="hidden" name="id" value="<?=$client['id']?>">
+
 							<button class="btn btn-warning btn-xs">
 								<i class="fa fa-user-edit"></i>
 							</button>
 						</form>
 					</td>
 					<td>
-						<form method="POST" onclick="return confirm('Tem certeza que deseja excluir ?');">
+						<form method="POST" action="controller/delete_client.php" onclick="return confirm('Tem certeza que deseja excluir ?');">
+
+							<input type="hidden" name="id" value="<?=$client['id']?>">
+
 							<button class="btn btn-danger btn-xs">
 								<i class="fa fa-trash"></i>
 							</button>
